@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS beer_db;
+CREATE DATABASE beer_db;
+USE beer_db;
+
+CREATE TABLE beers (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    drank BOOLEAN DEFAULT false,
+    PRIMARY KEY (id)
+);
