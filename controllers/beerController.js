@@ -1,7 +1,8 @@
 var express = require("express");
+
 var beer = require("../models/beer.js");
 
-var router = express.Route();
+var router = express.Router();
 
 router.get("/", function (req, res) {
     beer.all(function (data) {
@@ -20,7 +21,7 @@ router.post("/api/beers", function(req,res){
 });
 
 router.put("/api/beers/:id", function(req,res){
-    beer.update(["name"], [req.body.name], function(results){
+    beer.update(["id"], [req.params.id], function(results){
         console.log(results);
     });
 });
