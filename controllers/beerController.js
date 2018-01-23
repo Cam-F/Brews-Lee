@@ -2,7 +2,7 @@ var express = require("express");
 
 var beer = require("../models/beer.js");
 
-var router = express();
+var router = express.Router();
 
 router.get("/", function (req, res) {
     beer.all(function (data) {
