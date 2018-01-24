@@ -1,4 +1,3 @@
-// NPM packages
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -17,10 +16,10 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var router = require("./controllers/beerController.js");
+var routes = require("./controllers/beerController.js");
 
-app.use(router);
+app.use(routes);
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
-});
+app.listen(PORT, function(){
+    console.log("App now listening on: " + PORT);
+})

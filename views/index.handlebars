@@ -1,23 +1,38 @@
-<h1>Brews Lee</h1>
+<h1>Beer</h1>
 
-<h3>Bottoms up!</h3>
+<h2>Beers that are not empty</h2>
 
 <ul>
-    {{#each beer}} {{#unless drank}} {{> beers/beer-block drank=false}} {{/unless}} {{/each}}
+  {{#each beers}}
+    {{#unless empty}}
+      {{> beers/beer-block empty=true}}
+    {{/unless}}
+  {{/each}}
 </ul>
 
-<h2>Drank</h2>
+<h2>Beers that are empty</h2>
+
 <ul>
-    {{#each beer}} {{#if drank}} {{> beers/beer-block drank=true}} {{/if}} {{/each}}
+  {{#each beers}}
+    {{#if empty}}
+      {{> beers/beer-block empty=false}}
+    {{/if}}
+  {{/each}}
 </ul>
 
+<h2>Add a Beer</h2>
+<form class="create-form">
 
-<form action="" method="POST" role="form">
-    <legend>Add a Brew!</legend>
+  <div class="form-group">
+    <label for="beer">Beer Name:</label>
+    <input type="text" id="beer" name="name">
+  </div>
 
-    <div class="form-group">
-        <label for="name">Brew name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Input field">
-    </div>
-    <button type="submit" id="createBeer" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <label for="empty">Empty?</label><br>
+    <input type="radio" name="empty" value="1" checked> Empty!<br>
+    <input type="radio" name="empty" value="0"> Full
+  </div>
+
+  <button type="submit">Add Beer</button>
 </form>
